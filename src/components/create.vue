@@ -2,84 +2,83 @@
 // includes forms to fill the customer details
 <template>
  <div class="body">
-     <form id="form" @submit="contacts" method="POST"  action="/">
+     <form id="form">
          <label>First Name</label><br>
-         <input type="text" name="firstname" v-model="firstname" required/><br><br>
+         <input type="text" name="firstname" v-model="firstname" ref="firstname" required/><br><br>
          <label>Last Name</label><br>
-         <input type="text" name="lastname" v-model="lastname" required/><br><br>
+         <input type="text" name="lastname" v-model="lastname" ref="lastname" required/><br><br>
          <label>Email</label><br>
-         <input type="email" name="email" v-model="email" required/><br><br>
+         <input type="email" name="email" v-model="email" ref="email" required/><br><br>
          <label>Phone</label><br>
-         <input type="number" name="phone" v-model="phone" required/><br><br>
+         <input type="number" name="phone" v-model="phone" ref="phone" required/><br><br>
          <label>Address</label><br>
-         <input type="text" name="address" v-model="address" required/><br><br>
-         <input type="submit" value="Add" class="button" id="submitBtn" @click="save()"/>
+         <input type="text" name="address" v-model="address" ref="address" required/><br><br>
+         <button @click="getFormValues()">Add</button>
      </form>
  </div>
 </template>
 
 <script>
-
-//adding surix client app service
+// adding surix client app service
 import { Service, requests } from '@surix/client-service';
 const service = Service.init();
-
-//posting an entity to surix
-// submitBtn.addEventListener('click', function () {
-//     const entity = {
-//          contacts: {
-//                 // age: {$gt: 20}
-//                 firstname: {
-//                 label: 'firstname',
-//                 type: 'text',
-//                 value: firstname.value
-//                 },
-//                 lastname: {
-//                 label: 'lastname',
-//                 type: 'text',
-//                 value: lastname.value
-//                 },
-//                 email: {
-//                 label: 'email',
-//                 type: 'email',
-//                 value: email.value
-//                 },
-//                 phone: {
-//                 label: 'phone',
-//                 type: 'text',
-//                 value: phone.value
-//                 },
-//                 address: {
-//                 label: 'address',
-//                 type: 'text',
-//                 value: address.value
-//                 }
-
-//              },
-//          tags: ['contacts']
-//     };
-//     surix.request(requests.contacts.createEntity, entity)
-//     .then((createEntity) => {
-//         firstname.value = '';
-//         lastname.value = '';
-//         email.value = '';
-//         phone.value = '';
-//         address.value = '';
-//     }).catch(error => {
-//         console.error('Error', error);
-//     })
-// })
-
-
 
 export default {
   name: 'details',
   data () {
     return {
-        //data
+      data: {
+          firstname: "",
+          lastname: "",
+          email: "",
+          phone: "",
+          address: ""
+      }
     }
+  },
+
+  methods: {
+      createContact() {
+        let entity = {
+            data: {
+                firstname: {
+                    label: 'firstname',
+                    type:'text',
+                    value:this.firstname
+                },
+                lastname: {
+                    label: 'lastname',
+                    type:'text',
+                    value:this.lastname
+                },
+                email: {
+                    label: 'email',
+                    type:'text',
+                    value:this.email
+                },
+                phone: {
+                    label: 'phone',
+                    type:'text',
+                    value:this.phone
+                },
+                address: {
+                    label: 'address',
+                    type:'text',
+                    value:this.address
+                }
+            }
+        }
+        service.request(requests.data.createEntity, entity).then(entity => {
+            // Do something with the newly created entity
+            alert('successful')
+            console.log(data)
+            }).catch(err => {
+            // Handle the error
+        });
+      }
   }
 }
+
 </script>
 
 <style scoped>
@@ -93,7 +92,7 @@ input[type='text'],[type='email'],[type='number']{
     border: transparent;
     border-bottom: 2px solid teal;
 }
-input[type='submit']{
+button{
     border: transparent;
     border-radius: 5px;
     font-size: 16px;

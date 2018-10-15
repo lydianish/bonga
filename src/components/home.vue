@@ -26,52 +26,12 @@
 
 <script>
 
-//adding surix client app service
+// adding surix client app service
 import { Service, requests } from '@surix/client-service';
 const service = Service.init();
 
-//fetching entities from surix
-// const query = {
-//       query: {
-//         // age: {$gt: 20}
-//         firstname: {
-//           label: 'firstname',
-//           type: 'text',
-//           value: firstname.value
-//         },
-//         lastname: {
-//           label: 'lastname',
-//           type: 'text',
-//           value: lastname.value
-//         },
-//         email: {
-//           label: 'email',
-//           type: 'email',
-//           value: email.value
-//         },
-//         phone: {
-//           label: 'phone',
-//           type: 'text',
-//           value: phone.value
-//         },
-//         address: {
-//           label: 'address',
-//           type: 'text',
-//           value: address.value
-//         }
 
-//       },
-//       tags: ['contacts']
-// };
-// service.request(requests.contacts.getEntities, query)
-// .then(res => {
-//   //do something with response
-//   return contacts
-//   console.log(contacts)
-// })
-// .catch(err => {
-//   alert('fetching entities was unsuccessful')
-// })
+
 
 
 export default {

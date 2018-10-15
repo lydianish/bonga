@@ -11,20 +11,20 @@ Vue.mixin({
   data () {
     return {
       contacts: [
-        {
-          firstname: 'Sammy',
-          lastname: 'Zain',
-          email: 'samzain@www.org',
-          phone: '2376581225',
-          address: '1234 Atlanta'
-        },
-        {
-          firstname: 'Kevin',
-          lastname: 'Hart',
-          email: 'kevohart@www.org',
-          phone: '2376581225',
-          address: '42546 Los Angels'
-        }
+        // {
+        //   firstname: 'Sammy',
+        //   lastname: 'Zain',
+        //   email: 'samzain@www.org',
+        //   phone: '2376581225',
+        //   address: '1234 Atlanta'
+        // },
+        // {
+        //   firstname: 'Kevin',
+        //   lastname: 'Hart',
+        //   email: 'kevohart@www.org',
+        //   phone: '2376581225',
+        //   address: '42546 Los Angels'
+        // }
       ]
     }
   }
