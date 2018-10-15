@@ -1,0 +1,9 @@
+{
+    "name": "Bonga App",
+    "description": "Contact Management App",
+    "serverUrl": "https://5bfa01af.ngrok.io",
+    "baseUrl": "https://5bfa01af.ngrok.io",
+    "tile": {
+        "iconUrl": "https://icons.iconarchive.com/icons/graphicloads/100-flat/128/contact-icon.png"
+    }
+}
